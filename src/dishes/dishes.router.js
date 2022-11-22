@@ -1,5 +1,5 @@
 const router = require("express").Router({ mergeParams: true });
-const controller = require("./dishes/dishes.controller");
+const controller = require("src/dishes/dishes.controller");
 const methodNOtAllowed = require("../errors/methodNotAllowed");
 
 
@@ -8,9 +8,11 @@ const methodNOtAllowed = require("../errors/methodNotAllowed");
 router
     .route("/")
     .get(controller.list)
-    .post(controller.create)
+    .post(controller.create);
 
 router
     .route("/:dishId")
+    .get(controller.read)
+    .put(controller.update);
 
 module.exports = router;
