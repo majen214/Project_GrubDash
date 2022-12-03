@@ -1,5 +1,6 @@
-const router = require("express").Router({ mergeParams: true });
-const controller = require("./orders/orders.controller");
+// TODO: Implement the /orders routes needed to make the tests pass
+const router = require("express").Router();
+const controller = require("./orders.controller");
 
 // create, read, update, delete, and list
 
@@ -11,7 +12,9 @@ router
 router 
     .route("/:orderId")
     .get(controller.read)
+    .delete(controller.destroy)
     .put(controller.update)
-    .delete(controller.delete);
+//     .all(methodNotAllowed);
+
 
 module.exports = router;
