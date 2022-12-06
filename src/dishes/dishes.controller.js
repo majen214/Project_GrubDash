@@ -98,8 +98,6 @@ function create(req, res) {
     res.status(201).json({ data: newDish });
 }
 
-
-
 module.exports = {
     list,
     read: [dishIdExists, read],
